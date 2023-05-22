@@ -38,7 +38,7 @@ public class HW01xPathFB {
         driver.findElement(By.xpath("//select[@name='birthday_year']")).sendKeys("1993");
         driver.findElement(By.xpath("//label[text()='Female']")).click();
         driver.findElement(By.xpath("//button[@name='websubmit']")).click();
-        //        wait 2sec to see the popup close
+        //        wait 2sec to see button click
         Thread.sleep(2000);
         //        close the popup
         driver.findElement(By.xpath("//img[@class='_8idr img']")).click();
