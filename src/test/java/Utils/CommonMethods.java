@@ -2,22 +2,40 @@ package Utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class CommonMethods {
 
     public static WebDriver driver;
 
-    public static void openBrowserAndNavigateToURL(String url) {
+    public static void openBrowserAndNavigateToURL(String url, String browser) {
 
-        driver = new ChromeDriver();
+        switch (browser) {
+            case "chrome":
+                driver = new ChromeDriver();
+                break;
 
-        driver.get(url);
+            case "firefox":
+                driver = new FirefoxDriver();
+                break;
+        }
+
+
         driver.manage().window().maximize();
+        driver.get(url);
+
 
     }
 
     public static void closeBrowser() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
+
+
+
+
+
 
 }
