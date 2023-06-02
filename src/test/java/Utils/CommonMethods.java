@@ -1,8 +1,11 @@
 package Utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class CommonMethods {
 
@@ -24,7 +27,6 @@ public class CommonMethods {
         driver.manage().window().maximize();
         driver.get(url);
 
-
     }
 
     public static void closeBrowser() {
@@ -33,9 +35,35 @@ public class CommonMethods {
         }
     }
 
+    public static void sendText(String text, WebElement element) {
+        element.clear();
+        element.sendKeys(text);
+    }
+
+    public static void selectFromDropdown(By dropdownLocator, String optionText) {
+        WebElement dropdown = driver.findElement(dropdownLocator);
+        Select sel = new Select(dropdown);
+        sel.selectByVisibleText(optionText);
+    }
+
+    public static void selectFromDropdown(String optionValue, By dropdownLocator) {
+        WebElement dropdown = driver.findElement(dropdownLocator);
+        Select sel = new Select(dropdown);
+        sel.selectByVisibleText(optionValue);
+    }
+
+    public static void selectFromDropdown(By dropdownLocator, int optionIndex) {
+        WebElement dropdown = driver.findElement(dropdownLocator);
+        Select sel = new Select(dropdown);
+        sel.selectByIndex(optionIndex);
+    }
 
 
 
-
+  /*  public static void selectFromDropdown(WebElement dropdown, String optionValue) {
+        Select sel = new Select(dropdown);
+        sel.selectByValue(optionValue);
+    }
+*/
 
 }
