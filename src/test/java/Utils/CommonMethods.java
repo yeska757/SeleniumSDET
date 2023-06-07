@@ -7,6 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 public class CommonMethods {
 
     public static WebDriver driver;
@@ -26,6 +29,7 @@ public class CommonMethods {
 
         driver.manage().window().maximize();
         driver.get(url);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
     }
 
