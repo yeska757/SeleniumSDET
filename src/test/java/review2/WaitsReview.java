@@ -38,5 +38,6 @@ public class WaitsReview extends CommonMethods {
 //   now send some text
         WebElement textBox = driver.findElement(By.xpath("//form[@id='input-example']/child::input"));
         System.out.println(textBox.isEnabled());
+
     }
 }

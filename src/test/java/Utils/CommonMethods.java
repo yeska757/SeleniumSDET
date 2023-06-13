@@ -1,12 +1,13 @@
 package Utils;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -69,5 +70,17 @@ public class CommonMethods {
         sel.selectByValue(optionValue);
     }
 */
+
+    //take screenshot
+    public static void screenShot(String fileName) {
+        try {
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            File screenShot = ts.getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenShot, new File("C:\\Users\\Yeska\\IdeaProjects\\SeleniumSDET\\screenshot\\" + fileName+ ".png"));
+        } catch (IOException e) {
+            System.out.println("Screenshot wasn't taken due to error");
+        }
+    }
+
 
 }
