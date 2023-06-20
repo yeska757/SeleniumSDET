@@ -72,11 +72,11 @@ public class CommonMethods {
 */
 
     //take screenshot
-    public static void screenShot(String fileName) {
+    public static void takeScreenShot(String fileName) {
         try {
             TakesScreenshot ts = (TakesScreenshot) driver;
             File screenShot = ts.getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenShot, new File("C:\\Users\\Yeska\\IdeaProjects\\SeleniumSDET\\screenshot\\" + fileName+ ".png"));
+            FileUtils.copyFile(screenShot, new File(System.getProperty("user.dir") + "/screenshot/" + fileName + ".png"));
         } catch (IOException e) {
             System.out.println("Screenshot wasn't taken due to error");
         }
